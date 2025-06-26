@@ -122,6 +122,12 @@ button:hover {
   height: 200px;
   object-fit: cover;
   border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.08);
+  z-index: 2;
 }
 
 .gallery-item p {

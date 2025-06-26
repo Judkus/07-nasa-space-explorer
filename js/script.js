@@ -150,3 +150,24 @@ window.addEventListener('click', function (event) {
     imageModal.style.display = 'none';
   }
 });
+
+// Fun array of 'Did You Know?' space facts
+const spaceFacts = [
+  "Did you know? A day on Venus is longer than a year on Venus!",
+  "Did you know? Neutron stars can spin at a rate of 600 rotations per second!",
+  "Did you know? There are more trees on Earth than stars in the Milky Way.",
+  "Did you know? One million Earths could fit inside the Sun!",
+  "Did you know? The footprints on the Moon will be there for millions of years.",
+  "Did you know? Jupiter has 95 known moons!",
+  "Did you know? Space is completely silent—there’s no air for sound to travel.",
+  "Did you know? The hottest planet in our solar system is Venus.",
+  "Did you know? Saturn would float if you could put it in water!",
+  "Did you know? The International Space Station travels at 28,000 km/h!"
+];
+
+// Pick a random fact
+const randomFact = spaceFacts[Math.floor(Math.random() * spaceFacts.length)];
+
+// Display the fact in the spaceFact div
+const spaceFactDiv = document.getElementById('spaceFact');
+spaceFactDiv.textContent = randomFact;
