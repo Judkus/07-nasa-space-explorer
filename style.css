@@ -7,7 +7,7 @@
 
 /* Base page styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: Public Sans, sans-serif;
   background-color: #f1f1f1;
   padding: 20px;
 }
@@ -29,9 +29,9 @@ body {
 }
 
 h1 {
-  font-family: Verdana, sans-serif;
+  font-family: inter, sans-serif;
   font-weight: bold;
-  color: #212121;
+  color: #0032A0;
 }
 
 /* Logo */
@@ -53,7 +53,7 @@ h1 {
 /* Inputs and buttons */
 input[type="date"],
 button {
-  font-family: Arial, sans-serif;
+  font-family: Public Sans, sans-serif;
   font-weight: normal;
   color: #666;
   padding: 10px 15px;
@@ -220,4 +220,47 @@ button:hover {
 }
 .close:hover {
   color: #222;
+}
+
+/* Space Fact box styling */
+.space-fact {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 24px 20px;
+  margin: 30px auto 30px auto;
+  max-width: 700px;
+  min-height: 120px;
+  gap: 24px;
+}
+
+.space-fact-logo {
+  width: 100px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #f1f1f1;
+  padding: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+.space-fact-text {
+  font-size: 1.15em;
+  color: #222;
+  line-height: 1.5;
+  font-family: Dm mono, sans-serif;
+}
+
+@media (max-width: 600px) {
+  .space-fact {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 8px;
+    gap: 12px;
+  }
+  .space-fact-logo {
+    width: 70px;
+  }
 }

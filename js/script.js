@@ -71,17 +71,18 @@ function showGallery(items) {
         </div>
       `;
     } else if (item.media_type === 'video') {
-      // If it's a video, embed it if possible or show a link
+      // If it's a video, embed YouTube or Vimeo videos
       let videoEmbed = '';
-      // Try to embed YouTube or Vimeo videos
       if (item.url.includes('youtube.com') || item.url.includes('youtu.be')) {
-        // Extract YouTube video ID
+        // Extract YouTube video ID from different formats
         let videoId = '';
-        if (item.url.includes('youtube.com')) {
+        if (item.url.includes('youtube.com/watch')) {
           const urlParams = new URLSearchParams(item.url.split('?')[1]);
           videoId = urlParams.get('v');
-        } else if (item.url.includes('youtu.be')) {
+        } else if (item.url.includes('youtu.be/')) {
           videoId = item.url.split('/').pop();
+        } else if (item.url.includes('youtube.com/embed/')) {
+          videoId = item.url.split('/embed/')[1];
         }
         if (videoId) {
           videoEmbed = `<iframe width="100%" height="250" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
@@ -91,6 +92,7 @@ function showGallery(items) {
         const videoId = item.url.split('/').pop();
         videoEmbed = `<iframe width="100%" height="250" src="https://player.vimeo.com/video/${videoId}" frameborder="0" allowfullscreen></iframe>`;
       }
+      // Always embed if possible, otherwise show a link
       html += `
         <div class="gallery-item video-item">
           ${videoEmbed ? videoEmbed : `<a href="${item.url}" target="_blank" rel="noopener">Watch Video</a>`}
@@ -170,4 +172,7 @@ const randomFact = spaceFacts[Math.floor(Math.random() * spaceFacts.length)];
 
 // Display the fact in the spaceFact div
 const spaceFactDiv = document.getElementById('spaceFact');
-spaceFactDiv.textContent = randomFact;
+spaceFactDiv.innerHTML = `
+  <img class="space-fact-logo" src="img/NASA-Logo-Large.jpg" alt="NASA Logo" />
+  <div class="space-fact-text">${randomFact}</div>
+`;
